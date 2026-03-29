@@ -19,8 +19,9 @@ const translations = {
         trust_title: "Trusted by Loving Families Everyday",
         trust_desc: "Data-driven insights, professional objectivity, and a commitment to transparency form the core of my personalized advising in Puchong and surrounding Selangor.",
         
+        /* 表单英文翻译 */
         quote_title: "Get a quote in just a few clicks!",
-        label_fullname: "Full Name", /* 新增姓名翻译 */
+        label_fullname: "Full Name",
         label_gender: "Select your gender",
         opt_female: "Female", opt_male: "Male",
         label_dob: "Date of birth",
@@ -50,8 +51,9 @@ const translations = {
         trust_title: "值得每一位家人每日信赖",
         trust_desc: "基于数据分析的洞见、专业的客观态度，以及对透明度的承诺，构成了我在 Puchong 和 Selangor 的个性化咨询服务。",
         
+        /* 表单中文翻译 */
         quote_title: "简单几步，获取您的专属报价！",
-        label_fullname: "您的全名", /* 新增姓名翻译 */
+        label_fullname: "您的全名",
         label_gender: "您的性别",
         opt_female: "女性", opt_male: "男性",
         label_dob: "出生日期",
@@ -69,7 +71,13 @@ const translations = {
 
 function toggleLanguage() {
     currentLang = currentLang === 'en' ? 'zh' : 'en';
-    document.getElementById('langBtn').innerText = currentLang === 'en' ? '中 / EN' : 'EN / 中';
+    
+    // 确保手机端和电脑端的两个语言切换按钮文字都会跟着变
+    const langBtns = document.querySelectorAll('.lang-toggle');
+    langBtns.forEach(btn => {
+        btn.innerText = currentLang === 'en' ? '中 / EN' : 'EN / 中';
+    });
+
     elementsWithI18n.forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[currentLang][key]) {
@@ -78,7 +86,7 @@ function toggleLanguage() {
     });
 }
 
-// --- 2. 页面加载完毕后的事件绑定 ---
+// --- 2. 页面加载完毕后的事件绑定 (把所有动作都放在这里面) ---
 document.addEventListener('DOMContentLoaded', () => {
     
     // --- A. 滚动浮现效果 ---
@@ -96,7 +104,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => { revealOnScroll.observe(el); });
 
-    // --- B. 提交表单直接跳 WhatsApp (包含中英文智能判断) ---
+    // --- B. 导航栏向下滚动时增加阴影效果 ---
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('main-header');
+        if (window.scrollY > 50) {
+            header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
+        } else {
+            header.style.boxShadow = '0 2px 15px rgba(0,0,0,0.03)';
+        }
+    });
+
+    // --- C. 移动端汉堡菜单动态逻辑 ---
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (hamburger && navLinks) {
+        // 点击汉堡图标：滑出菜单 & 变成 X
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        });
+
+        // 点击菜单里的链接后，自动把菜单收回去
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('toggle');
+            });
+        });
+    }
+
+    // --- D. 提交表单直接跳 WhatsApp (包含中英文智能判断) ---
     const whatsappForm = document.getElementById('whatsappForm');
     
     if(whatsappForm) {
@@ -104,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
 
             // 1. 抓取用户填写的所有数据
-            const fullName = document.getElementById('fullName').value; // 抓取姓名
+            const fullName = document.getElementById('fullName').value; 
             const gender = document.querySelector('input[name="gender"]:checked').value;
             const dob = document.getElementById('dob').value;
             const smoker = document.querySelector('input[name="smoker"]:checked').value;
@@ -113,9 +151,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let whatsappMessage = "";
 
-            // 2. 判断当前语言，分别打包中英文的 WhatsApp 讯息
+            // 2. 判断当前语言，打包中英文 WhatsApp 讯息
             if (currentLang === 'zh') {
-                // 如果是中文界面，顺便把 Yes/No 等选项也翻译成中文
                 const genderZh = gender === 'Female' ? '女性' : '男性';
                 const smokerZh = smoker === 'Yes' ? '是' : '否';
                 const employedZh = employed === 'Yes' ? '是' : '否';
@@ -140,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // 3. 构建 WhatsApp API 链接
-            // 【记得替换号码！！！】
+            // 【重要：记得在这里换成你的真实号码，例如 60123456789】
             const phoneNumber = "60162389836"; 
             
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;

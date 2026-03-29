@@ -19,10 +19,16 @@
                 <li><a href="#home" data-i18n="nav_home">Home</a></li>
                 <li><a href="#expertise" data-i18n="nav_expertise">Expertise</a></li>
                 <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+                <li class="mobile-lang"><button class="lang-toggle" onclick="toggleLanguage()">中 / EN</button></li>
             </ul>
             <div class="nav-actions">
-                <button class="lang-toggle" onclick="toggleLanguage()" id="langBtn">中 / EN</button>
+                <button class="lang-toggle desktop-lang" onclick="toggleLanguage()" id="langBtn">中 / EN</button>
                 <a href="#contact" class="btn" data-i18n="nav_btn">Get Free Quote</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </nav>
     </header>
