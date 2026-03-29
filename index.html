@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trusted Insurance Solutions | Secure Your Future</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="top-bar" data-i18n="top_promo">
+            Special Offer: Comprehensive life plans customized for your needs in Malaysia.
+        </div>
+        <nav>
+            <a href="#" class="logo">Dayong<span class="logo-small">4896</span></a>
+            <ul class="nav-links">
+                <li><a href="#home" data-i18n="nav_home">Home</a></li>
+                <li><a href="#expertise" data-i18n="nav_expertise">Expertise</a></li>
+                <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="lang-toggle" onclick="toggleLanguage()" id="langBtn">中 / EN</button>
+                <a href="#contact" class="btn" data-i18n="nav_btn">Get Free Quote</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1 class="reveal" data-i18n="hero_title">Securing Your Future, Family, and Peace of Mind</h1>
+        <p class="reveal delay-1" data-i18n="hero_subtitle">We provide comprehensive, tailored insurance solutions to protect your health, assets, and loved ones in Malaysia.</p>
+        <div class="hero-btns reveal delay-2">
+            <a href="https://wa.me/60162389836" class="btn" target="_blank" data-i18n="btn_whatsapp">Consult Now</a>
+            <a href="#expertise" class="btn secondary" data-i18n="btn_explore">Explore Plans</a>
+        </div>
+    </section>
+
+    <section id="expertise" class="expertise-section">
+        <h2 class="section-title reveal" data-i18n="service_title">Company Expertise</h2>
+        <div class="service-grid">
+            <div class="service-card reveal">
+                <div class="icon">🏥</div>
+                <h3 data-i18n="srv_health_title">Comprehensive Health Care</h3>
+                <p data-i18n="srv_health_desc">Covering medical expenses, hospital stays, surgical treatments, and critical illness. Ensure your health is always prioritized without financial burden.</p>
+            </div>
+            <div class="service-card reveal delay-1">
+                <div class="icon">🌱</div>
+                <h3 data-i18n="srv_life_title">Life & Family Planning</h3>
+                <p data-i18n="srv_life_desc">Provide a financial safety net for your family against life's unexpected events. We help you create robust plans to protect your loved ones' future.</p>
+            </div>
+            <div class="service-card reveal delay-2">
+                <div class="icon">📈</div>
+                <h3 data-i18n="srv_wealth_title">Wealth Accumulation & Legacy</h3>
+                <p data-i18n="srv_wealth_desc">Leverage strategic savings, investment-linked plans, and legacy transfer strategies. Grow and protect your wealth across generations in Malaysia.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-section reveal">
+        <h2 class="section-title" data-i18n="trust_title">Trusted by Loving Families Everyday</h2>
+        <p style="margin-bottom: 2rem; color: #555;" data-i18n="trust_desc">Data-driven insights, professional objectivity, and a commitment to transparency form the core of my personalized advising in Puchong and surrounding Selangor.</p>
+        <a href="#contact" class="btn secondary" data-i18n="btn_quote">Start Free Evaluation</a>
+    </section>
+
+    <section id="contact" class="quote-form-section">
+        <h2 class="section-title reveal" data-i18n="quote_title">Get a quote in just a few clicks!</h2>
+        <div class="quote-form-container reveal delay-1">
+            <form class="quote-form" id="whatsappForm">
+                
+                <div class="form-group full-width">
+                    <label for="fullName" data-i18n="label_fullname">Full Name</label>
+                    <input type="text" id="fullName" required placeholder="e.g. Miranda H. Halim">
+                </div>
+
+                <div class="form-group full-width">
+                
+                <div class="form-group full-width">
+                    <label data-i18n="label_gender">Select your gender</label>
+                    <div class="radio-group">
+                        <input type="radio" id="gender_female" name="gender" value="Female" required>
+                        <label for="gender_female" data-i18n="opt_female">Female</label>
+                        <input type="radio" id="gender_male" name="gender" value="Male">
+                        <label for="gender_male" data-i18n="opt_male">Male</label>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label data-i18n="label_dob">Date of birth</label>
+                    <input type="date" id="dob" required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label data-i18n="label_smoker">Are you a smoker?</label>
+                    <div class="radio-group">
+                        <input type="radio" id="smoker_no" name="smoker" value="No" required>
+                        <label for="smoker_no" data-i18n="opt_no">No</label>
+                        <input type="radio" id="smoker_yes" name="smoker" value="Yes">
+                        <label for="smoker_yes" data-i18n="opt_yes">Yes</label>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label data-i18n="label_employed">Are you employed?</label>
+                    <div class="radio-group">
+                        <input type="radio" id="emp_no" name="employed" value="No" required>
+                        <label for="emp_no" data-i18n="opt_no">No</label>
+                        <input type="radio" id="emp_yes" name="employed" value="Yes">
+                        <label for="emp_yes" data-i18n="opt_yes">Yes</label>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label data-i18n="label_income">Annual income</label>
+                    <select id="income" required>
+                        <option value="" disabled selected data-i18n="opt_select_income">Select an annual income</option>
+                        <option value="Below RM 36,000">Below RM 36,000</option>
+                        <option value="RM 36,000 - RM 72,000">RM 36,000 - RM 72,000</option>
+                        <option value="RM 72,001 - RM 120,000">RM 72,001 - RM 120,000</option>
+                        <option value="Above RM 120,000">Above RM 120,000</option>
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <button type="submit" class="btn full-width" style="padding: 16px; font-size: 1.1rem; margin-top: 10px;" data-i18n="btn_get_quote">GET MY QUOTE</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content reveal">
+            <span class="footer-logo">Dayong<span class="logo-small">4896</span></span>
+            <p data-i18n="footer_desc" style="font-weight: 300;">Objective, professional, and personalized insurance advice you can trust. Let's secure your future together in Malaysia.</p>
+            <div class="footer-info">
+                <p>📞 +60 16-238 9836</p>
+                <p>📍 Puchong, Selangor, Malaysia</p>
+            </div>
+        </div>
+        <div class="copyright reveal delay-1" data-i18n="footer_copyright">
+            &copy; 2026 DY4896. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
