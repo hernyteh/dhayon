@@ -326,6 +326,15 @@ footer {
 .mobile-lang { display: none; }
 
 /* 当屏幕宽度小于 768px (手机/小平板) 时，执行以下 CSS */
+/* --- 强制让电脑端的菜单栏绝对居中 --- */
+@media (min-width: 769px) {
+    nav { position: relative; }
+    .nav-links {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
 /* 当屏幕宽度小于 768px (手机/小平板) 时，执行以下 CSS */
 @media (max-width: 768px) {
     /* 1. 导航栏与按钮排版 */

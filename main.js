@@ -4,6 +4,7 @@ const elementsWithI18n = document.querySelectorAll('[data-i18n]');
 
 const translations = {
     en: {
+        brand_name: "DHAYON", /* 新增的 Logo 英文版 */
         top_promo: "Special Offer: Comprehensive life plans customized for your needs in Malaysia.",
         nav_home: "Home", nav_expertise: "Expertise", nav_contact: "Contact", nav_btn: "Get Free Quote",
         hero_title: "Securing Your Future, Family, and Peace of Mind",
@@ -32,9 +33,10 @@ const translations = {
         btn_get_quote: "GET MY QUOTE",
         
         footer_desc: "Objective, professional, and personalized insurance advice you can trust. Let's secure your future together in Malaysia.",
-        footer_copyright: "© 2026 Dhayon. All Rights Reserved."
+        footer_copyright: "© 2026 DHAYON. All Rights Reserved." /* 同步更新版权为大写 */
     },
     zh: {
+        brand_name: "DHAYON 岱远", /* 新增的 Logo 中文版 */
         top_promo: "限时优惠：为您在马来西亚量身定制的全面人寿与保障计划。",
         nav_home: "首页", nav_expertise: "核心服务", nav_contact: "联系我们", nav_btn: "获取免费规划",
         hero_title: "您的未来，您的家庭，您的安心",
@@ -63,7 +65,7 @@ const translations = {
         btn_get_quote: "立即获取报价",
 
         footer_desc: "值得信赖的客观、专业且个性化的咨询。让我们一起保障您在马来西亚的未来。",
-        footer_copyright: "© 2026 Dhayon. 保留所有权利。"
+        footer_copyright: "© 2026 DHAYON 岱远. 保留所有权利。" /* 同步更新版权 */
     }
 };
 
